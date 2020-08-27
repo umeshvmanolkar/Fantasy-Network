@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "848103997049",
+    "firebase_url": "https://fantasy-network.firebaseio.com",
+    "project_id": "fantasy-network",
+    "storage_bucket": "fantasy-network.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848103997049:android:20bcf51acb3f5c68f01ea8",
+        "android_client_info": {
+          "package_name": "com.umesh.fantasy_network"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848103997049-8mnk0paiqpklualuseprg27v14jf66ef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE6nRr4BRRwgHgneTmNEHqhds3kZrcc40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848103997049-8mnk0paiqpklualuseprg27v14jf66ef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
