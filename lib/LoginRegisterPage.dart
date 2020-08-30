@@ -1,5 +1,7 @@
+import 'package:fantasy_network/DialogBox.dart';
 import 'package:flutter/material.dart';
 import 'Authentication.dart';
+import 'DialogBox.dart';
 
 class LoginRegisterPage extends StatefulWidget {
   @override
@@ -17,6 +19,8 @@ class LoginRegisterPage extends StatefulWidget {
 enum FormType { login, register }
 
 class _LoginRegisterPageState extends State<LoginRegisterPage> {
+  DialogBox dialogBox = new DialogBox();
+
   final formKey = new GlobalKey<FormState>();
   FormType _formType = FormType.login;
   String _email = "";
@@ -38,13 +42,16 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
       try {
         if (_formType == FormType.login) {
           String userId = await widget.auth.SignIn(_email, _password);
+          dialogBox.information(context, "Congratulation ", "Signed In");
           print("login userId=" + userId);
         } else {
           String userId = await widget.auth.SignUp(_email, _password);
+          dialogBox.information(context, "Congratulation ", "Signed Up");
           print("Register userId=" + userId);
         }
         widget.onSignedIn();
       } catch (e) {
+        dialogBox.information(context, "Error = ", e.toString());
         print("Error = " + e.toString());
       }
     }
