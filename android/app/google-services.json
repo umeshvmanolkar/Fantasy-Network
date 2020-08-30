@@ -30,6 +30,13 @@
             {
               "client_id": "848103997049-8mnk0paiqpklualuseprg27v14jf66ef.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "848103997049-enbapp6jhgh9h9hfde0uanvih5fj1pcc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.umesh.fantasyNetwork"
+              }
             }
           ]
         }

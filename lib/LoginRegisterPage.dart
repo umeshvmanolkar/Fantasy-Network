@@ -9,7 +9,7 @@ class LoginRegisterPage extends StatefulWidget {
   });
   final AuthImplementation auth;
   final VoidCallback onSignedIn;
-  _LoginRegisterPageState createState() {
+  State<StatefulWidget> createState() {
     return _LoginRegisterPageState();
   }
 }
@@ -43,6 +43,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
           String userId = await widget.auth.SignUp(_email, _password);
           print("Register userId=" + userId);
         }
+        widget.onSignedIn();
       } catch (e) {
         print("Error = " + e.toString());
       }
@@ -86,8 +87,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
       SizedBox(
         height: 10.0,
       ),
-      Image.asset('images/fantasy_network_logo.jpg'),
-      logo(),
+      new Container(child: Image.asset('images/logo.jpg')),
       SizedBox(
         height: 20.0,
       ),
@@ -119,17 +119,6 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
     ];
   }
 
-  Widget logo() {
-    return new Hero(
-      tag: 'Hero',
-      child: new CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 110,
-        child: Image.asset('images/fantasy_network_logo.jpg'),
-      ),
-    );
-  }
-
   List<Widget> createButtons() {
     if (_formType == FormType.login) {
       return [
@@ -140,7 +129,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
           ),
           textColor: Colors.white,
           color: Colors.orange,
-          onPressed: validateAndSave,
+          onPressed: validateAndSubmit,
         ),
         new FlatButton(
           child: new Text(

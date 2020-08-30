@@ -16,11 +16,10 @@ class FantasyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "Fantasy Network",
-      theme: new ThemeData(primarySwatch: Colors.deepOrange),
-      home: MappingPage(
-        auth: Auth(),
-      ),
-    );
+        title: "Fantasy Network",
+        theme: new ThemeData(primarySwatch: Colors.deepOrange),
+        home: MappingPage(
+          auth: Auth(),
+        ));
   }
 }

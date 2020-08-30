@@ -41,12 +41,27 @@ class _MappingPageState extends State<MappingPage> {
     });
   }
 
+  void _signedOut() {
+    setState(() {
+      authStatus = AuthStatus.notSignedIn;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     switch (authStatus) {
       case AuthStatus.notSignedIn:
         return new LoginRegisterPage(auth: widget.auth, onSignedIn: _signedIn);
+
+      case AuthStatus.notSignedIn:
+        return new HomePage(
+          auth: widget.auth,
+          onSignedOut: _signedOut,
+        );
     }
-    return null;
+    return new HomePage(
+      auth: widget.auth,
+      onSignedOut: _signedOut,
+    );
   }
 }

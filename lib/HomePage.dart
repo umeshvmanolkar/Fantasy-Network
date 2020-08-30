@@ -4,9 +4,11 @@ import 'Authentication.dart';
 class HomePage extends StatefulWidget {
   HomePage({
     this.auth,
+    this.onSignedOut,
   });
 
   final AuthImplementation auth;
+  final VoidCallback onSignedOut;
 
   @override
   State<StatefulWidget> createState() {
@@ -16,10 +18,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void _logoutUser() async {
+    try {
+      await widget.auth.signOut();
+      widget.onSignedOut();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new Scaffold(
+    return Scaffold(
       appBar: new AppBar(
         title: new Text("Home"),
       ),
@@ -27,13 +38,20 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: new BottomAppBar(
         color: Colors.deepOrange,
         child: new Container(
+          margin: const EdgeInsets.only(left: 70, right: 70),
           child: new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
-            children: [
+            children: <Widget>[
               new IconButton(
                 icon: new Icon(Icons.add_a_photo),
                 onPressed: null,
+                color: Colors.white,
+                iconSize: 40,
+              ),
+              new IconButton(
+                icon: new Icon(Icons.logout),
+                onPressed: _logoutUser,
                 color: Colors.white,
                 iconSize: 40,
               )
