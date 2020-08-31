@@ -46,12 +46,12 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
           print("login userId=" + userId);
         } else {
           String userId = await widget.auth.SignUp(_email, _password);
-          dialogBox.information(context, "Congratulation ", "Signed Up");
+          // dialogBox.information(context, "Congratulation ", "Signed Up");
           print("Register userId=" + userId);
         }
         widget.onSignedIn();
       } catch (e) {
-        dialogBox.information(context, "Error = ", e.toString());
+        // dialogBox.information(context, "Error = ", e.toString());
         print("Error = " + e.toString());
       }
     }

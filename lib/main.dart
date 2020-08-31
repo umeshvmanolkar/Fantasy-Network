@@ -9,10 +9,10 @@ import 'Authentication.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(new FantasyApp());
+  runApp(new FantasyNetwork());
 }
 
-class FantasyApp extends StatelessWidget {
+class FantasyNetwork extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
